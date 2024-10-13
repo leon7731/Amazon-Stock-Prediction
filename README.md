@@ -9,7 +9,7 @@ This project focuses on building a data-driven model that predicts the stock’s
 To build a robust model for predicting stock price movements, multiple strategic approaches have been employed, with an emphasis on feature engineering, diverse machine learning models, and 
 hyperparameter optimization using Optuna. Each approach leverages the strengths of advanced ensemble algorithms to improve both prediction accuracy and overall model performance.
 
-# Price Movement Categorization Methods: Overview Table
+## Price Movement Categorization Approaches: Overview Table
 
 | **Approaches**                         | **Description**                                                                                                 | **Advantages**                                                    | **Disadvantages**                                      | **Example Classes**                                                                 |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------|------------------------------------------------------------------------------------|
@@ -21,3 +21,22 @@ hyperparameter optimization using Optuna. Each approach leverages the strengths 
 | **Approach 6 - Multi-Factor Model**             | Combines several indicators (returns, volatility, momentum, etc.) for a composite target.                         | Comprehensive and robust.                                         | Complex to design, requires extensive feature engineering. | 0: Bearish (< -0.5), 1: Neutral (-0.5 to 0.5), 2: Bullish (> 0.5) |
 
 
+## Approach 1 - Price Change Categorization
+The following table presents the performance metrics for different machine learning models used to classify stock price changes. These models were evaluated based on **accuracy, precision, recall**, and **F1-score** using macro averages.
+
+### Model Performance
+
+| Model | Accuracy (%) | Precision Macro average (%) | Recall Macro average (%) | F1-Score Macro average (%) |
+|:-----------:|:------------:|:------------:|:-----------:|:-----------:|
+| [AdaBoost Classification](https://github.com/leon7731/Amazon-Stock-Prediction/tree/main/2)i)%20Approach%201%20(Classification)/AdaBoost%20(Classification%20AP1)) | 53 | 47 | 45 | 45 |
+| [XGBoost Classification]() | 51 | 43 | 44 | 43 | 
+| [Random Forest Classification]() | 49 | 45 | 43 | 43 |
+| [CatBoost Classification]() | 55 | 38 | 43 | 38 |
+
+### Model Performance
+| Model | Accuracy (%) | Precision Macro average (%) | Recall Macro average (%) | F1-Score Macro average (%) |
+|:-----------:|:------------:|:------------:|:-----------:|:-----------:|
+| [AdaBoost Classification](https://github.com/leon7731/English-Premier-League-Prediction/tree/main/Approach%201/AdaBoost) | 53 | 47 | 45 | 45 |
+| [XGBoost Classification](https://github.com/leon7731/English-Premier-League-Prediction/tree/main/Approach%201/XGBoost) | 51 | 43 | 44 | 43 | 
+| [Random Forest Classification](https://github.com/leon7731/English-Premier-League-Prediction/tree/main/Approach%201/Random%20Forest) | 49 | 45 | 43 | 43 |
+| [CatBoost Classification](https://github.com/leon7731/English-Premier-League-Prediction/tree/main/Approach%201/CatBoost) | 55 | 38 | 43 | 38 |
