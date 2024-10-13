@@ -11,32 +11,82 @@ hyperparameter optimization using Optuna. Each approach leverages the strengths 
 
 ## Price Movement Categorization Approaches: Overview Table
 
-| **Approaches**                         | **Description**                                                                                                 | **Advantages**                                                    | **Disadvantages**                                      | **Example Classes**                                                                 |
-|------------------------------------|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Approach 1 - Price Change Categorization**    | Classify the percentage change in the stock's close price into discrete categories (e.g., increase/decrease).    | Simple, captures intensity of movements.                         | May not consider volatility or market conditions.     | 0: Large Decrease (< -5%), 1: Small Decrease (0% to -5%), 2: No Change (0% to 2%)  |
-| **Approach 2 - Volatility-Adjusted Classes**    | Combines returns with volatility for a risk-adjusted view.                                                       | Adjusts for underlying volatility, ideal for diversified portfolios. | Requires accurate volatility calculation.              | 0: Significant Loss, 1: Loss, 2: Small Gain, 3: Large Gain                          |
-| **Approach 3 - Relative Performance to Market** | Compares the stock's return against a market or sector index.                                                    | Useful for sector-specific strategies, reflects market trends.   | Requires additional market or sector data.            | 0: Underperforming (< -5%), 1: Neutral (-5% to 5%), 2: Outperforming (> 5%)         |
-| **Approach 4 - Momentum-Based Classes**         | Uses momentum indicators like RSI to define trends (uptrend, downtrend, or no trend).                            | Captures short- to medium-term sentiment.                         | Sensitive to short-term fluctuations, may be noisy.   | 0: Oversold (< 30 RSI), 1: Neutral (30-70 RSI), 2: Overbought (> 70 RSI)            |
-| **Approach 5 - Earnings Surprise Impact**       | Classifies stock movement based on the impact of earnings surprises.                                             | Captures event-driven behavior, useful during earnings season.   | Limited to earnings seasons, needs accurate EPS data. | 0: Large Negative Surprise (< -10%), 1: Neutral (-10% to 10%), 2: Positive Surprise (> 10%) |
-| **Approach 6 - Multi-Factor Model**             | Combines several indicators (returns, volatility, momentum, etc.) for a composite target.                         | Comprehensive and robust.                                         | Complex to design, requires extensive feature engineering. | 0: Bearish (< -0.5), 1: Neutral (-0.5 to 0.5), 2: Bullish (> 0.5) |
+# Price Movement Categorization Approaches
 
+| **Approach**                                | **Description**                                                                                                  | **Advantages**                                                    | **Disadvantages**                                      | **Example Classes**                                                                 |
+|---------------------------------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------|------------------------------------------------------------------------------------|
+| **Approach 1 - Price Change Categorization** | Classify the percentage change in the stock's close price into discrete categories (e.g., increase/decrease).    | Simple, captures the intensity of movements.                      | May not consider volatility or market conditions.     | 0: Large Decrease (< -5%), 1: Small Decrease (0% to -5%), 2: No Change (0% to 2%), 3: Small Increase (2% to 5%), 4: Large Increase (> 5%) |
+| **Approach 2 - Volatility-Adjusted Classes** | Combines returns with volatility for a risk-adjusted view.                                                        | Adjusts for underlying volatility, ideal for diversified portfolios. | Requires accurate volatility calculation.              | 0: Significant Loss, 1: Loss, 2: Small Gain, 3: Large Gain                          |
+| **Approach 3 - Multi-Feature Targets (Hybrid Target)** | Uses multiple features (e.g., RSI, MACD, and Cumulative Return) to create more nuanced target classes.            | Captures trend strength, momentum, and cumulative performance.   | Complex to design, requires multiple features.        | 0: Strong downtrend with cumulative loss and negative MACD, 1: Weak downtrend with neutral MACD, 2: Sideways trend (return between -5% and 5%), 3: Uptrend with positive cumulative return and positive MACD, 4: Strong uptrend with RSI > 70 and cumulative return > 10% |
 
 ## Approach 1 - Price Change Categorization
 The following table presents the performance metrics for different machine learning models used to classify stock price changes. These models were evaluated based on **accuracy, precision, recall**, and **F1-score** using macro averages.
 
-### Model Performance
+### Model Performance (Sorted by F1-Score Macro Average)
+| **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
+|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
+| [AdaBoost Classification](https://github.com/leon7731/Amazon-Stock-Prediction/tree/main/Approach%201/AdaBoost%20(Classification%20AP1)) | 92 | 93 | 93 | 92 |
+| [XGBoost Classification](https://github.com/leon7731/Amazon-Stock-Prediction/tree/main/Approach%201/CatBoost%20(Classification%20AP1)) | 75 | 42 | 50 | 45 |
+| [CatBoost Classification](https://github.com/leon7731/Amazon-Stock-Prediction/tree/main/Approach%201/XGBoost%20(Classification%20AP1)) | 75 | 48 | 53 | 47 |
+| [Random Forest Classification](https://github.com/leon7731/Amazon-Stock-Prediction/tree/main/Approach%201/Random%20Forest%20(Classification%20AP1)) | 67 | 38 | 43 | 40 |
 
-| Model | Accuracy (%) | Precision Macro average (%) | Recall Macro average (%) | F1-Score Macro average (%) |
-|:-----------:|:------------:|:------------:|:-----------:|:-----------:|
-| [AdaBoost Classification](https://github.com/leon7731/Amazon-Stock-Prediction/tree/main/2)i)%20Approach%201%20(Classification)/AdaBoost%20(Classification%20AP1)) | 53 | 47 | 45 | 45 |
-| [XGBoost Classification]() | 51 | 43 | 44 | 43 | 
-| [Random Forest Classification]() | 49 | 45 | 43 | 43 |
-| [CatBoost Classification]() | 55 | 38 | 43 | 38 |
+### Backtesting Performance (Sorted by F1-Score Macro Average)
+| **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
+|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
+| [AdaBoost Classification Backtesting](./Approach%201/AdaBoost%20(Classification%20AP1)/3%29%20AdaBoost%20(BackTesting).ipynb) | 86 | 60 | 67 | 63 |
+| [CatBoost Classification Backtesting](Approach%201/CatBoost%20(Classification%20AP1)/3%29%20CatBoost%20(BackTesting).ipynb) | 86 | 60 | 67 | 63 |
+| [XGBoost Classification Backtesting](Approach%201/XGBoost%20(Classification%20AP1)/3%29%20XGBoost%20(BackTesting).ipynb) | 86 | 60 | 67 | 63 |
+| [Random Forest Classification Backtesting](Approach%201/Random%20Forest%20(Classification%20AP1)/3%29%20Random%20Forest%20(BackTesting).ipynb) | 57 | 27 | 33 | 30 |
 
-### Model Performance
-| Model | Accuracy (%) | Precision Macro average (%) | Recall Macro average (%) | F1-Score Macro average (%) |
-|:-----------:|:------------:|:------------:|:-----------:|:-----------:|
-| [AdaBoost Classification](https://github.com/leon7731/English-Premier-League-Prediction/tree/main/Approach%201/AdaBoost) | 53 | 47 | 45 | 45 |
-| [XGBoost Classification](https://github.com/leon7731/English-Premier-League-Prediction/tree/main/Approach%201/XGBoost) | 51 | 43 | 44 | 43 | 
-| [Random Forest Classification](https://github.com/leon7731/English-Premier-League-Prediction/tree/main/Approach%201/Random%20Forest) | 49 | 45 | 43 | 43 |
-| [CatBoost Classification](https://github.com/leon7731/English-Premier-League-Prediction/tree/main/Approach%201/CatBoost) | 55 | 38 | 43 | 38 |
+---
+
+## Approach 2 -  Volatility-Adjusted Classes
+The following table presents the performance metrics for different machine learning models used to classify stock price changes. These models were evaluated based on **accuracy, precision, recall**, and **F1-score** using macro averages.
+
+### Model Performance (Sorted by F1-Score Macro Average)
+
+| **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
+|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
+| [XGBoost Classification]() | 57 | 47 | 67 | 52 |
+| [CatBoost Classification]() | 50 | 41 | 45 | 34 |
+| [AdaBoost Classification]() | 42 | 20 | 40 | 24 |
+| [Random Forest Classification]() | 8 | 2 | 20 | 3 |
+
+### Backtesting Performance (Sorted by F1-Score Macro Average)
+
+| **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
+|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
+| [AdaBoost Classification Backtesting]() | 57 | 47 | 67 | 52 |
+| [XGBoost Classification Backtesting]() | 57 | 47 | 67 | 52 |
+| [CatBoost Classification Backtesting]() | 37 | 23 | 12 | 17 |
+| [Random Forest Classification Backtesting]() | 29 | 11 | 33 | 17 |
+
+
+---
+
+## Approach 3 -  Multi-Feature Targets (Hybrid Target)
+The following table presents the performance metrics for different machine learning models used to classify stock price changes. These models were evaluated based on **accuracy, precision, recall**, and **F1-score** using macro averages.
+
+### Model Performance (Sorted by F1-Score Macro Average)
+| **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
+|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
+| [AdaBoost Classification]() | 83 | 57 | 62 | 60 |
+| [CatBoost Classification]() | 83 | 57 | 62 | 60 |
+| [Random Forest Classification]() | 50 | 36 | 38 | 32 |
+| [XGBoost Classification]() |  |  |  |  |
+
+### Backtesting Performance (Sorted by F1-Score Macro Average)
+| **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
+|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
+| [AdaBoost Classification]() | 100 | 100 | 100 | 100 |
+| [CatBoost Classification]() | 100 | 100 | 100 | 100 |
+| [Random Forest Classification]() | 71 | 28 | 33 | 30 |
+| [XGBoost Classification]() |  |  |  |  |
+
+
+
+
+
+
+
+
