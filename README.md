@@ -67,21 +67,24 @@ The following table presents the performance metrics for different machine learn
 ## Approach 3 -  Multi-Feature Targets (Hybrid Target)
 The following table presents the performance metrics for different machine learning models used to classify stock price changes. These models were evaluated based on **accuracy, precision, recall**, and **F1-score** using macro averages.
 
+
 ### Model Performance (Sorted by F1-Score Macro Average)
+
 | **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
-|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
-| [AdaBoost Classification]() | 83 | 57 | 62 | 60 |
-| [CatBoost Classification]() | 83 | 57 | 62 | 60 |
-| [Random Forest Classification]() | 50 | 36 | 38 | 32 |
-| [XGBoost Classification]() |  |  |  |  |
+|:------------------------------------------:|:----------------:|:-------------------------------:|:----------------------------:|:------------------------------:|
+| [AdaBoost Classification](Approach%203/AdaBoost%20(Classification%20AP3)/2%29%20AdaBoost%20(Pipeline).ipynb) | 83 | 57 | 62 | 60 |
+| [CatBoost Classification](Approach%203/CatBoost%20(Classification%20AP3)/2%29%20CatBoost%20(Pipeline).ipynb) | 83 | 57 | 62 | 60 |
+| [Random Forest Classification](Approach%203/Random%20Forest%20(Classification%20AP3)/2%29%20Random%20Forest%20(Pipeline).ipynb) | 50 | 36 | 38 | 32 |
+| [XGBoost Classification](Approach%203/XGBoost%20(Classification%20AP3)/2%29%20XGBoost%20(Pipeline).ipynb) |  |  |  |  |
+
 
 ### Backtesting Performance (Sorted by F1-Score Macro Average)
-| **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
-|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
-| [AdaBoost Classification]() | 100 | 100 | 100 | 100 |
-| [CatBoost Classification]() | 100 | 100 | 100 | 100 |
-| [Random Forest Classification]() | 71 | 28 | 33 | 30 |
-| [XGBoost Classification]() |  |  |  |  |
+| **Model**| **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
+|:------------------------------------------:|:----------------:|:-------------------------------:|:----------------------------:|:------------------------------:|
+| [AdaBoost Classification](Approach%203/AdaBoost%20(Classification%20AP3)/3%29%20AdaBoost%20(BackTesting).ipynb) | 100 | 100 | 100 | 100 |
+| [CatBoost Classification](Approach%203/CatBoost%20(Classification%20AP3)/3%29%20CatBoost%20(BackTesting).ipynb) | 100 | 100 | 100 | 100 |
+| [Random Forest Classification](Approach%203/Random%20Forest%20(Classification%20AP3)/3%29%20Random%20Forest%20(BackTesting).ipynb) | 71 | 28 | 33 | 30 |
+| [XGBoost Classification](Approach%203/XGBoost%20(Classification%20AP3)/3%29%20XGBoost%20(BackTesting).ipynb) |  |  |  |  |
 
 
 
