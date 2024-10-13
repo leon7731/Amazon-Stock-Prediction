@@ -38,6 +38,30 @@ The following table presents the performance metrics for different machine learn
 | [XGBoost Classification Backtesting](Approach%201/XGBoost%20(Classification%20AP1)/3%29%20XGBoost%20(BackTesting).ipynb) | 86 | 60 | 67 | 63 |
 | [Random Forest Classification Backtesting](Approach%201/Random%20Forest%20(Classification%20AP1)/3%29%20Random%20Forest%20(BackTesting).ipynb) | 57 | 27 | 33 | 30 |
 
+---
+
+## Approach 2 -  Volatility-Adjusted Classes
+The following table presents the performance metrics for different machine learning models used to classify stock price changes. These models were evaluated based on **accuracy, precision, recall**, and **F1-score** using macro averages.
+
+### Model Performance (Sorted by F1-Score Macro Average)
+
+| **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
+|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
+| [XGBoost Classification]() | 57 | 47 | 67 | 52 |
+| [CatBoost Classification]() | 50 | 41 | 45 | 34 |
+| [AdaBoost Classification]() | 42 | 20 | 40 | 24 |
+| [Random Forest Classification]() | 8 | 2 | 20 | 3 |
+
+### Backtesting Performance (Sorted by F1-Score Macro Average)
+
+| **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
+|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
+| [AdaBoost Classification Backtesting]() | 57 | 47 | 67 | 52 |
+| [XGBoost Classification Backtesting]() | 57 | 47 | 67 | 52 |
+| [CatBoost Classification Backtesting]() | 37 | 23 | 12 | 17 |
+| [Random Forest Classification Backtesting]() | 29 | 11 | 33 | 17 |
+
+
 
 
 
