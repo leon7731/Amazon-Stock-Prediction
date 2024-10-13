@@ -62,6 +62,29 @@ The following table presents the performance metrics for different machine learn
 | [Random Forest Classification Backtesting]() | 29 | 11 | 33 | 17 |
 
 
+---
+
+## Approach 3 -  Multi-Feature Targets (Hybrid Target)
+The following table presents the performance metrics for different machine learning models used to classify stock price changes. These models were evaluated based on **accuracy, precision, recall**, and **F1-score** using macro averages.
+
+### Model Performance (Sorted by F1-Score Macro Average)
+| **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
+|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
+| [AdaBoost Classification]() | 83 | 57 | 62 | 60 |
+| [CatBoost Classification]() | 83 | 57 | 62 | 60 |
+| [Random Forest Classification]() | 50 | 36 | 38 | 32 |
+| [XGBoost Classification]() |  |  |  |  |
+
+### Backtesting Performance (Sorted by F1-Score Macro Average)
+| **Model** | **Accuracy (%)** | **Precision Macro Average (%)** | **Recall Macro Average (%)** | **F1-Score Macro Average (%)** |
+|:-------------------------------------------:|:------------:|:----------------------------:|:----------------------------:|:----------------------------:|
+| [AdaBoost Classification]() | 100 | 100 | 100 | 100 |
+| [CatBoost Classification]() | 100 | 100 | 100 | 100 |
+| [Random Forest Classification]() | 71 | 28 | 33 | 30 |
+| [XGBoost Classification]() |  |  |  |  |
+
+
+
 
 
 
